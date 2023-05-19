@@ -1,14 +1,14 @@
-# MinIO Quickstart Guide
+# Guide de démarrage MinIO
 
 [![Slack](https://slack.min.io/slack?type=svg)](https://slack.min.io) [![Docker Pulls](https://img.shields.io/docker/pulls/minio/minio.svg?maxAge=604800)](https://hub.docker.com/r/minio/minio/) [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/minio/minio/blob/master/LICENSE)
 
 [![MinIO](https://raw.githubusercontent.com/minio/minio/master/.github/logo.svg?sanitize=true)](https://min.io)
 
-MinIO is a High Performance Object Storage released under GNU Affero General Public License v3.0. It is API compatible with Amazon S3 cloud storage service. Use MinIO to build high performance infrastructure for machine learning, analytics and application data workloads.
+MinIO est un système stockage d'objets hautes performances publié sous la licence publique générale GNU Affero v3.0. Il est compatible API avec le service de stockage en nuage Amazon S3. Utilisez MinIO pour créer une infrastructure hautes performances pour les charges de travail d'apprentissage automatique, d'analyse et de données d'application.
 
-This README provides quickstart instructions on running MinIO on bare metal hardware, including container-based installations. For Kubernetes environments, use the [MinIO Kubernetes Operator](https://github.com/minio/operator/blob/master/README.md).
+Ce fichier README fournit des instructions de démarrage rapide sur l'exécution de MinIO sur du matériel nu, y compris les installations basées sur des conteneurs. Pour les environnements Kubernetes, utilisez [l'opérateur MinIO Kubernetes](https://github.com/minio/operator/blob/master/README.md).
 
-## Container Installation
+## Installation du conteneur
 
 Use the following commands to run a standalone MinIO server as a container.
 
