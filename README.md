@@ -37,7 +37,7 @@ Utilisez les commandes suivantes pour exécuter un serveur MinIO autonome sur ma
 
 Les serveurs MinIO autonomes sont les mieux adaptés au développement et à l'évaluation précoces. Certaines fonctionnalités telles que la gestion des versions, le verrouillage d'objet et la réplication de compartiment nécessitent un déploiement distribué de MinIO avec codage d'effacement. Pour un développement et une production étendus, déployez MinIO avec le codage d'effacement activé - en particulier, avec un *minimum* de 4 disques par serveur MinIO. Voir [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html) pour une documentation plus complète.
 
-### Homebrew (recommended)
+### Homebrew (recommandé)
 
 Exécutez la commande suivante pour installer le dernier package MinIO stable à l'aide de [Homebrew] (https://brew.sh/). Remplacez ``/data`` par le chemin d'accès au lecteur ou au répertoire dans lequel vous souhaitez que MinIO stocke les données.
 
