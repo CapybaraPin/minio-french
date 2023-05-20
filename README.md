@@ -33,33 +33,33 @@ Vous pouvez également vous connecter à l'aide de n'importe quel outil compatib
 
 ## macOS
 
-Use the following commands to run a standalone MinIO server on macOS.
+Utilisez les commandes suivantes pour exécuter un serveur MinIO autonome sur macOS. 
 
-Standalone MinIO servers are best suited for early development and evaluation. Certain features such as versioning, object locking, and bucket replication require distributed deploying MinIO with Erasure Coding. For extended development and production, deploy MinIO with Erasure Coding enabled - specifically, with a *minimum* of 4 drives per MinIO server. See [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html) for more complete documentation.
+Les serveurs MinIO autonomes sont les mieux adaptés au développement et à l'évaluation précoces. Certaines fonctionnalités telles que la gestion des versions, le verrouillage d'objet et la réplication de compartiment nécessitent un déploiement distribué de MinIO avec codage d'effacement. Pour un développement et une production étendus, déployez MinIO avec le codage d'effacement activé - en particulier, avec un *minimum* de 4 disques par serveur MinIO. Voir [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html) pour une documentation plus complète.
 
 ### Homebrew (recommended)
 
-Run the following command to install the latest stable MinIO package using [Homebrew](https://brew.sh/). Replace ``/data`` with the path to the drive or directory in which you want MinIO to store data.
+Exécutez la commande suivante pour installer le dernier package MinIO stable à l'aide de [Homebrew] (https://brew.sh/). Remplacez ``/data`` par le chemin d'accès au lecteur ou au répertoire dans lequel vous souhaitez que MinIO stocke les données.
 
 ```sh
 brew install minio/stable/minio
 minio server /data
 ```
 
-> NOTE: If you previously installed minio using `brew install minio` then it is recommended that you reinstall minio from `minio/stable/minio` official repo instead.
+> REMARQUE : Si vous avez précédemment installé minio à l'aide de `brew install minio`, il est recommandé de réinstaller minio à partir du dépôt officiel `minio/stable/minio` à la place.
 
 ```sh
 brew uninstall minio
 brew install minio/stable/minio
 ```
 
-The MinIO deployment starts using default root credentials `minioadmin:minioadmin`. You can test the deployment using the MinIO Console, an embedded web-based object browser built into MinIO Server. Point a web browser running on the host machine to <http://127.0.0.1:9000> and log in with the root credentials. You can use the Browser to create buckets, upload objects, and browse the contents of the MinIO server.
+Le déploiement MinIO démarre en utilisant les informations d'identification racine par défaut `minioadmin:minioadmin`. Vous pouvez tester le déploiement à l'aide de la console MinIO, un navigateur d'objets Web intégré intégré au serveur MinIO. Pointez un navigateur Web exécuté sur la machine hôte vers <http://127.0.0.1:9000> et connectez-vous avec les informations d'identification root. Vous pouvez utiliser le navigateur pour créer des compartiments, télécharger des objets et parcourir le contenu du serveur MinIO.
 
-You can also connect using any S3-compatible tool, such as the MinIO Client `mc` commandline tool. See [Test using MinIO Client `mc`](#test-using-minio-client-mc) for more information on using the `mc` commandline tool. For application developers, see <https://min.io/docs/minio/linux/developers/minio-drivers.html/> to view MinIO SDKs for supported languages.
+Vous pouvez également vous connecter à l'aide de n'importe quel outil compatible S3, tel que l'outil de ligne de commande "mc" du client MinIO. Voir [Test using MinIO Client `mc`](#test-using-minio-client-mc) pour plus d'informations sur l'utilisation de l'outil de ligne de commande `mc`. Pour les développeurs d'applications, voir <https://min.io/docs/minio/linux/developers/minio-drivers.html/> pour afficher les SDK MinIO pour les langues prises en charge.
 
-### Binary Download
+### Téléchargement binaire
 
-Use the following command to download and run a standalone MinIO server on macOS. Replace ``/data`` with the path to the drive or directory in which you want MinIO to store data.
+Utilisez la commande suivante pour télécharger et exécuter un serveur MinIO autonome sur macOS. Remplacez ``/data`` par le chemin d'accès au lecteur ou au répertoire dans lequel vous souhaitez que MinIO stocke les données.
 
 ```sh
 wget https://dl.min.io/server/minio/release/darwin-amd64/minio
@@ -67,13 +67,13 @@ chmod +x minio
 ./minio server /data
 ```
 
-The MinIO deployment starts using default root credentials `minioadmin:minioadmin`. You can test the deployment using the MinIO Console, an embedded web-based object browser built into MinIO Server. Point a web browser running on the host machine to <http://127.0.0.1:9000> and log in with the root credentials. You can use the Browser to create buckets, upload objects, and browse the contents of the MinIO server.
+Le déploiement MinIO démarre en utilisant les informations d'identification racine par défaut `minioadmin:minioadmin`. Vous pouvez tester le déploiement à l'aide de la console MinIO, un navigateur d'objets Web intégré intégré au serveur MinIO. Pointez un navigateur Web exécuté sur la machine hôte vers <http://127.0.0.1:9000> et connectez-vous avec les informations d'identification root. Vous pouvez utiliser le navigateur pour créer des compartiments, télécharger des objets et parcourir le contenu du serveur MinIO.
 
-You can also connect using any S3-compatible tool, such as the MinIO Client `mc` commandline tool. See [Test using MinIO Client `mc`](#test-using-minio-client-mc) for more information on using the `mc` commandline tool. For application developers, see <https://min.io/docs/minio/linux/developers/minio-drivers.html> to view MinIO SDKs for supported languages.
+Vous pouvez également vous connecter à l'aide de n'importe quel outil compatible S3, tel que l'outil de ligne de commande "mc" du client MinIO. Voir [Test using MinIO Client `mc`](#test-using-minio-client-mc) pour plus d'informations sur l'utilisation de l'outil de ligne de commande `mc`. Pour les développeurs d'applications, voir <https://min.io/docs/minio/linux/developers/minio-drivers.html> pour afficher les SDK MinIO pour les langues prises en charge.
 
 ## GNU/Linux
 
-Use the following command to run a standalone MinIO server on Linux hosts running 64-bit Intel/AMD architectures. Replace ``/data`` with the path to the drive or directory in which you want MinIO to store data.
+Utilisez la commande suivante pour exécuter un serveur MinIO autonome sur des hôtes Linux exécutant des architectures Intel/AMD 64 bits. Remplacez ``/data`` par le chemin d'accès au lecteur ou au répertoire dans lequel vous souhaitez que MinIO stocke les données.
 
 ```sh
 wget https://dl.min.io/server/minio/release/linux-amd64/minio
@@ -81,7 +81,7 @@ chmod +x minio
 ./minio server /data
 ```
 
-The following table lists supported architectures. Replace the `wget` URL with the architecture for your Linux host.
+Le tableau suivant répertorie les architectures prises en charge. Remplacez l'URL `wget` par l'architecture de votre hôte Linux.
 
 | Architecture                   | URL                                                        |
 | --------                       | ------                                                     |
@@ -90,63 +90,64 @@ The following table lists supported architectures. Replace the `wget` URL with t
 | 64-bit PowerPC LE (ppc64le)    | <https://dl.min.io/server/minio/release/linux-ppc64le/minio> |
 | IBM Z-Series (S390X)           | <https://dl.min.io/server/minio/release/linux-s390x/minio>   |
 
-The MinIO deployment starts using default root credentials `minioadmin:minioadmin`. You can test the deployment using the MinIO Console, an embedded web-based object browser built into MinIO Server. Point a web browser running on the host machine to <http://127.0.0.1:9000> and log in with the root credentials. You can use the Browser to create buckets, upload objects, and browse the contents of the MinIO server.
+Le déploiement MinIO démarre en utilisant les informations d'identification racine par défaut `minioadmin:minioadmin`. Vous pouvez tester le déploiement à l'aide de la console MinIO, un navigateur d'objets Web intégré intégré au serveur MinIO. Pointez un navigateur Web exécuté sur la machine hôte vers <http://127.0.0.1:9000> et connectez-vous avec les informations d'identification root. Vous pouvez utiliser le navigateur pour créer des compartiments, télécharger des objets et parcourir le contenu du serveur MinIO.
 
-You can also connect using any S3-compatible tool, such as the MinIO Client `mc` commandline tool. See [Test using MinIO Client `mc`](#test-using-minio-client-mc) for more information on using the `mc` commandline tool. For application developers, see <https://min.io/docs/minio/linux/developers/minio-drivers.html> to view MinIO SDKs for supported languages.
+Vous pouvez également vous connecter à l'aide de n'importe quel outil compatible S3, tel que l'outil de ligne de commande "mc" du client MinIO. Voir [Test using MinIO Client `mc`](#test-using-minio-client-mc) pour plus d'informations sur l'utilisation de l'outil de ligne de commande `mc`. Pour les développeurs d'applications, voir <https://min.io/docs/minio/linux/developers/minio-drivers.html> pour afficher les SDK MinIO pour les langues prises en charge.
 
-> NOTE: Standalone MinIO servers are best suited for early development and evaluation. Certain features such as versioning, object locking, and bucket replication require distributed deploying MinIO with Erasure Coding. For extended development and production, deploy MinIO with Erasure Coding enabled - specifically, with a *minimum* of 4 drives per MinIO server. See [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html#) for more complete documentation.
+> REMARQUE : Les serveurs MinIO autonomes sont les mieux adaptés au développement et à l'évaluation précoces. Certaines fonctionnalités telles que la gestion des versions, le verrouillage d'objet et la réplication de compartiment nécessitent un déploiement distribué de MinIO avec codage d'effacement. Pour un développement et une production étendus, déployez MinIO avec le codage d'effacement activé - en particulier, avec un *minimum* de 4 disques par serveur MinIO. Voir [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html#) pour une documentation plus complète.
 
 ## Microsoft Windows
 
-To run MinIO on 64-bit Windows hosts, download the MinIO executable from the following URL:
+Pour exécuter MinIO sur des hôtes Windows 64 bits, téléchargez l'exécutable MinIO à partir de l'URL suivante :
 
 ```sh
 https://dl.min.io/server/minio/release/windows-amd64/minio.exe
 ```
 
-Use the following command to run a standalone MinIO server on the Windows host. Replace ``D:\`` with the path to the drive or directory in which you want MinIO to store data. You must change the terminal or powershell directory to the location of the ``minio.exe`` executable, *or* add the path to that directory to the system ``$PATH``:
+Utilisez la commande suivante pour exécuter un serveur MinIO autonome sur l'hôte Windows. Remplacez ``D:\`` par le chemin d'accès au lecteur ou au répertoire dans lequel vous souhaitez que MinIO stocke les données. Vous devez changer le répertoire du terminal ou du powershell à l'emplacement de l'exécutable ``minio.exe``, *ou* ajouter le chemin de ce répertoire au système ``$PATH`` :
 
 ```sh
 minio.exe server D:\
 ```
 
-The MinIO deployment starts using default root credentials `minioadmin:minioadmin`. You can test the deployment using the MinIO Console, an embedded web-based object browser built into MinIO Server. Point a web browser running on the host machine to <http://127.0.0.1:9000> and log in with the root credentials. You can use the Browser to create buckets, upload objects, and browse the contents of the MinIO server.
+Le déploiement MinIO démarre en utilisant les informations d'identification racine par défaut `minioadmin:minioadmin`. Vous pouvez tester le déploiement à l'aide de la console MinIO, un navigateur d'objets Web intégré intégré au serveur MinIO. Pointez un navigateur Web exécuté sur la machine hôte vers <http://127.0.0.1:9000> et connectez-vous avec les informations d'identification root. Vous pouvez utiliser le navigateur pour créer des compartiments, télécharger des objets et parcourir le contenu du serveur MinIO.
 
-You can also connect using any S3-compatible tool, such as the MinIO Client `mc` commandline tool. See [Test using MinIO Client `mc`](#test-using-minio-client-mc) for more information on using the `mc` commandline tool. For application developers, see <https://min.io/docs/minio/linux/developers/minio-drivers.html> to view MinIO SDKs for supported languages.
+Vous pouvez également vous connecter à l'aide de n'importe quel outil compatible S3, tel que l'outil de ligne de commande "mc" du client MinIO. Voir [Test using MinIO Client `mc`](#test-using-minio-client-mc) pour plus d'informations sur l'utilisation de l'outil de ligne de commande `mc`. Pour les développeurs d'applications, voir <https://min.io/docs/minio/linux/developers/minio-drivers.html> pour afficher les SDK MinIO pour les langues prises en charge.
 
-> NOTE: Standalone MinIO servers are best suited for early development and evaluation. Certain features such as versioning, object locking, and bucket replication require distributed deploying MinIO with Erasure Coding. For extended development and production, deploy MinIO with Erasure Coding enabled - specifically, with a *minimum* of 4 drives per MinIO server. See [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html#) for more complete documentation.
+> REMARQUE : Les serveurs MinIO autonomes sont les mieux adaptés au développement et à l'évaluation précoces. Certaines fonctionnalités telles que la gestion des versions, le verrouillage d'objet et la réplication de compartiment nécessitent un déploiement distribué de MinIO avec codage d'effacement. Pour un développement et une production étendus, déployez MinIO avec le codage d'effacement activé - en particulier, avec un *minimum* de 4 disques par serveur MinIO. Voir [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html#) pour une documentation plus complète.
 
-## Install from Source
 
-Use the following commands to compile and run a standalone MinIO server from source. Source installation is only intended for developers and advanced users. If you do not have a working Golang environment, please follow [How to install Golang](https://golang.org/doc/install). Minimum version required is [go1.19](https://golang.org/dl/#stable)
+## Installer à partir de la source
+
+Utilisez les commandes suivantes pour compiler et exécuter un serveur MinIO autonome à partir de la source. L'installation des sources est uniquement destinée aux développeurs et aux utilisateurs avancés. Si vous ne disposez pas d'un environnement Golang opérationnel, veuillez suivre [Comment installer Golang](https://golang.org/doc/install). La version minimale requise est [go1.19](https://golang.org/dl/#stable)
 
 ```sh
 go install github.com/minio/minio@latest
 ```
 
-The MinIO deployment starts using default root credentials `minioadmin:minioadmin`. You can test the deployment using the MinIO Console, an embedded web-based object browser built into MinIO Server. Point a web browser running on the host machine to <http://127.0.0.1:9000> and log in with the root credentials. You can use the Browser to create buckets, upload objects, and browse the contents of the MinIO server.
+Le déploiement MinIO démarre en utilisant les informations d'identification racine par défaut `minioadmin:minioadmin`. Vous pouvez tester le déploiement à l'aide de la console MinIO, un navigateur d'objets Web intégré intégré au serveur MinIO. Pointez un navigateur Web exécuté sur la machine hôte vers <http://127.0.0.1:9000> et connectez-vous avec les informations d'identification root. Vous pouvez utiliser le navigateur pour créer des compartiments, télécharger des objets et parcourir le contenu du serveur MinIO.
 
-You can also connect using any S3-compatible tool, such as the MinIO Client `mc` commandline tool. See [Test using MinIO Client `mc`](#test-using-minio-client-mc) for more information on using the `mc` commandline tool. For application developers, see <https://min.io/docs/minio/linux/developers/minio-drivers.html> to view MinIO SDKs for supported languages.
+Vous pouvez également vous connecter à l'aide de n'importe quel outil compatible S3, tel que l'outil de ligne de commande "mc" du client MinIO. Voir [Test using MinIO Client `mc`](#test-using-minio-client-mc) pour plus d'informations sur l'utilisation de l'outil de ligne de commande `mc`. Pour les développeurs d'applications, voir <https://min.io/docs/minio/linux/developers/minio-drivers.html> pour afficher les SDK MinIO pour les langues prises en charge.
 
-> NOTE: Standalone MinIO servers are best suited for early development and evaluation. Certain features such as versioning, object locking, and bucket replication require distributed deploying MinIO with Erasure Coding. For extended development and production, deploy MinIO with Erasure Coding enabled - specifically, with a *minimum* of 4 drives per MinIO server. See [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html) for more complete documentation.
+> REMARQUE : Les serveurs MinIO autonomes sont les mieux adaptés au développement et à l'évaluation précoces. Certaines fonctionnalités telles que la gestion des versions, le verrouillage d'objet et la réplication de compartiment nécessitent un déploiement distribué de MinIO avec codage d'effacement. Pour un développement et une production étendus, déployez MinIO avec le codage d'effacement activé - en particulier, avec un *minimum* de 4 disques par serveur MinIO. Voir [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html) pour une documentation plus complète.
 
-MinIO strongly recommends *against* using compiled-from-source MinIO servers for production environments.
+MinIO recommande fortement * contre * l'utilisation de serveurs MinIO compilés à partir de la source pour les environnements de production.
 
-## Deployment Recommendations
+## Recommandations de déploiement 
 
-### Allow port access for Firewalls
+### Autoriser l'accès au port pour les pare-feu
 
-By default MinIO uses the port 9000 to listen for incoming connections. If your platform blocks the port by default, you may need to enable access to the port.
+Par défaut, MinIO utilise le port 9000 pour écouter les connexions entrantes. Si votre plate-forme bloque le port par défaut, vous devrez peut-être activer l'accès au port.
 
 ### ufw
 
-For hosts with ufw enabled (Debian based distros), you can use `ufw` command to allow traffic to specific ports. Use below command to allow access to port 9000
+Pour les hôtes avec ufw activé (distributions basées sur Debian), vous pouvez utiliser la commande `ufw` pour autoriser le trafic vers des ports spécifiques. Utilisez la commande ci-dessous pour autoriser l'accès au port 9000.
 
 ```sh
 ufw allow 9000
 ```
 
-Below command enables all incoming traffic to ports ranging from 9000 to 9010.
+La commande ci-dessous active tout le trafic entrant vers les ports allant de 9000 à 9010.
 
 ```sh
 ufw allow 9000:9010/tcp
@@ -154,19 +155,19 @@ ufw allow 9000:9010/tcp
 
 ### firewall-cmd
 
-For hosts with firewall-cmd enabled (CentOS), you can use `firewall-cmd` command to allow traffic to specific ports. Use below commands to allow access to port 9000
+Pour les hôtes avec firewall-cmd activé (CentOS), vous pouvez utiliser la commande `firewall-cmd` pour autoriser le trafic vers des ports spécifiques. Utilisez les commandes ci-dessous pour autoriser l'accès au port 9000.
 
 ```sh
 firewall-cmd --get-active-zones
 ```
 
-This command gets the active zone(s). Now, apply port rules to the relevant zones returned above. For example if the zone is `public`, use
+Cette commande obtient la ou les zones actives. Maintenant, appliquez les règles de port aux zones pertinentes renvoyées ci-dessus. Par exemple, si la zone est "publique", utilisez.
 
 ```sh
 firewall-cmd --zone=public --add-port=9000/tcp --permanent
 ```
 
-Note that `permanent` makes sure the rules are persistent across firewall start, restart or reload. Finally reload the firewall for changes to take effect.
+Notez que "permanent" garantit que les règles sont persistantes lors du démarrage, du redémarrage ou du rechargement du pare-feu. Enfin, rechargez le pare-feu pour que les modifications prennent effet.
 
 ```sh
 firewall-cmd --reload
@@ -174,83 +175,82 @@ firewall-cmd --reload
 
 ### iptables
 
-For hosts with iptables enabled (RHEL, CentOS, etc), you can use `iptables` command to enable all traffic coming to specific ports. Use below command to allow
-access to port 9000
+Pour les hôtes avec iptables activé (RHEL, CentOS, etc.), vous pouvez utiliser la commande `iptables` pour activer tout le trafic provenant de ports spécifiques. Utilisez la commande ci-dessous pour autoriser l'accès au port 9000.
 
 ```sh
 iptables -A INPUT -p tcp --dport 9000 -j ACCEPT
 service iptables restart
 ```
 
-Below command enables all incoming traffic to ports ranging from 9000 to 9010.
+La commande ci-dessous active tout le trafic entrant vers les ports allant de 9000 à 9010.
 
 ```sh
 iptables -A INPUT -p tcp --dport 9000:9010 -j ACCEPT
 service iptables restart
 ```
 
-## Test MinIO Connectivity
+## Testez la connectivité MinIO
 
-### Test using MinIO Console
+### Test à l'aide de la console MinIO
 
-MinIO Server comes with an embedded web based object browser. Point your web browser to <http://127.0.0.1:9000> to ensure your server has started successfully.
+MinIO Server est livré avec un navigateur d'objets Web intégré. Pointez votre navigateur Web sur <http://127.0.0.1:9000> pour vous assurer que votre serveur a démarré avec succès.
 
-> NOTE: MinIO runs console on random port by default if you wish choose a specific port use `--console-address` to pick a specific interface and port.
+> REMARQUE : MinIO exécute la console sur un port aléatoire par défaut si vous souhaitez choisir un port spécifique, utilisez `--console-address` pour choisir une interface et un port spécifiques.
 
-### Things to consider
+### Choses à considérer ⚠️
 
-MinIO redirects browser access requests to the configured server port (i.e. `127.0.0.1:9000`) to the configured Console port. MinIO uses the hostname or IP address specified in the request when building the redirect URL. The URL and port *must* be accessible by the client for the redirection to work.
+MinIO redirige les demandes d'accès du navigateur vers le port de serveur configuré (c'est-à-dire `127.0.0.1:9000`) vers le port de console configuré. MinIO utilise le nom d'hôte ou l'adresse IP spécifié dans la requête lors de la création de l'URL de redirection. L'URL et le port *doivent* être accessibles par le client pour que la redirection fonctionne.
 
-For deployments behind a load balancer, proxy, or ingress rule where the MinIO host IP address or port is not public, use the `MINIO_BROWSER_REDIRECT_URL` environment variable to specify the external hostname for the redirect. The LB/Proxy must have rules for directing traffic to the Console port specifically.
+Pour les déploiements derrière un équilibreur de charge, un proxy ou une règle d'entrée où l'adresse IP ou le port de l'hôte MinIO n'est pas public, utilisez la variable d'environnement `MINIO_BROWSER_REDIRECT_URL` pour spécifier le nom d'hôte externe pour la redirection. Le LB/Proxy doit avoir des règles pour diriger spécifiquement le trafic vers le port de la console.
 
-For example, consider a MinIO deployment behind a proxy `https://minio.example.net`, `https://console.minio.example.net` with rules for forwarding traffic on port :9000 and :9001 to MinIO and the MinIO Console respectively on the internal network. Set `MINIO_BROWSER_REDIRECT_URL` to `https://console.minio.example.net` to ensure the browser receives a valid reachable URL.
+Par exemple, considérez un déploiement MinIO derrière un proxy `https://minio.example.net`, `https://console.minio.example.net` avec des règles pour transférer le trafic sur les ports :9000 et :9001 vers MinIO et la console MinIO respectivement sur le réseau interne. Définissez `MINIO_BROWSER_REDIRECT_URL` sur `https://console.minio.example.net` pour vous assurer que le navigateur reçoit une URL accessible valide.
 
-Similarly, if your TLS certificates do not have the IP SAN for the MinIO server host, the MinIO Console may fail to validate the connection to the server. Use the `MINIO_SERVER_URL` environment variable  and specify the proxy-accessible hostname of the MinIO server to allow the Console to use the MinIO server API using the TLS certificate.
+De même, si vos certificats TLS n'ont pas le SAN IP pour l'hôte du serveur MinIO, la console MinIO peut ne pas valider la connexion au serveur. Utilisez la variable d'environnement `MINIO_SERVER_URL` et spécifiez le nom d'hôte accessible par proxy du serveur MinIO pour permettre à la console d'utiliser l'API du serveur MinIO à l'aide du certificat TLS.
 
-For example: `export MINIO_SERVER_URL="https://minio.example.net"`
+Par exemple : `export MINIO_SERVER_URL="https://minio.example.net"`
 
-| Dashboard                                                                                   | Creating a bucket                                                                           |
+| Dashboard                                                                                   | Création d'un bucket                                                                       |
 | -------------                                                                               | -------------                                                                               |
 | ![Dashboard](https://github.com/minio/minio/blob/master/docs/screenshots/pic1.png?raw=true) | ![Dashboard](https://github.com/minio/minio/blob/master/docs/screenshots/pic2.png?raw=true) |
 
-## Test using MinIO Client `mc`
+## Test avec le client MinIO `mc`
 
-`mc` provides a modern alternative to UNIX commands like ls, cat, cp, mirror, diff etc. It supports filesystems and Amazon S3 compatible cloud storage services. Follow the MinIO Client [Quickstart Guide](https://min.io/docs/minio/linux/reference/minio-mc.html#quickstart) for further instructions.
+`mc` fournit une alternative moderne aux commandes UNIX telles que ls, cat, cp, mirror, diff, etc. Il prend en charge les systèmes de fichiers et les services de stockage en nuage compatibles avec Amazon S3. Suivez le MinIO Client [Quickstart Guide](https://min.io/docs/minio/linux/reference/minio-mc.html#quickstart) pour plus d'instructions.
 
-## Upgrading MinIO
+## Mise à jour MinIO
 
-Upgrades require zero downtime in MinIO, all upgrades are non-disruptive, all transactions on MinIO are atomic. So upgrading all the servers simultaneously is the recommended way to upgrade MinIO.
+Les mises à niveau ne nécessitent aucun temps d'arrêt dans MinIO, toutes les mises à niveau sont sans interruption, toutes les transactions sur MinIO sont atomiques. La mise à niveau simultanée de tous les serveurs est donc la méthode recommandée pour mettre à niveau MinIO.
 
-> NOTE: requires internet access to update directly from <https://dl.min.io>, optionally you can host any mirrors at <https://my-artifactory.example.com/minio/>
+> REMARQUE : nécessite un accès Internet pour mettre à jour directement depuis <https://dl.min.io>, vous pouvez éventuellement héberger n'importe quel miroir sur <https://my-artifactory.example.com/minio/>
 
-- For deployments that installed the MinIO server binary by hand, use [`mc admin update`](https://min.io/docs/minio/linux/reference/minio-mc-admin/mc-admin-update.html)
+- Pour les déploiements qui ont installé manuellement le binaire du serveur MinIO, utilisez [`mc admin update`](https://min.io/docs/minio/linux/reference/minio-mc-admin/mc-admin-update.html )
 
 ```sh
 mc admin update <minio alias, e.g., myminio>
 ```
 
-- For deployments without external internet access (e.g. airgapped environments), download the binary from <https://dl.min.io> and replace the existing MinIO binary let's say for example `/opt/bin/minio`, apply executable permissions `chmod +x /opt/bin/minio` and proceed to perform `mc admin service restart alias/`.
+- Pour les déploiements sans accès Internet externe (par exemple, les environnements isolés), téléchargez le binaire depuis <https://dl.min.io> et remplacez le binaire MinIO existant, disons par exemple `/opt/bin/minio`, appliquez les autorisations exécutables `chmod +x /opt/bin/minio` et procédez à l'exécution de `mc admin service restart alias/`.
 
-- For installations using Systemd MinIO service, upgrade via RPM/DEB packages **parallelly** on all servers or replace the binary lets say `/opt/bin/minio` on all nodes, apply executable permissions `chmod +x /opt/bin/minio` and process to perform `mc admin service restart alias/`.
+- Pour les installations utilisant le service Systemd MinIO, mettez à niveau via les packages RPM/DEB **parallèlement** sur tous les serveurs ou remplacez le binaire disons `/opt/bin/minio` sur tous les nœuds, appliquez les autorisations exécutables `chmod +x /opt/ bin/minio' et processus pour effectuer 'mc admin service restart alias/'.
 
-### Upgrade Checklist
+### Liste de contrôle de mise à niveau
 
-- Test all upgrades in a lower environment (DEV, QA, UAT) before applying to production. Performing blind upgrades in production environments carries significant risk.
-- Read the release notes for MinIO *before* performing any upgrade, there is no forced requirement to upgrade to latest releases upon every releases. Some releases may not be relevant to your setup, avoid upgrading production environments unnecessarily.
-- If you plan to use `mc admin update`, MinIO process must have write access to the parent directory where the binary is present on the host system.
-- `mc admin update` is not supported and should be avoided in kubernetes/container environments, please upgrade containers by upgrading relevant container images.
-- **We do not recommend upgrading one MinIO server at a time, the product is designed to support parallel upgrades please follow our recommended guidelines.**
+- Testez toutes les mises à niveau dans un environnement inférieur (DEV, QA, UAT) avant de les appliquer à la production. L'exécution de mises à niveau aveugles dans des environnements de production comporte des risques importants.
+- Lisez les notes de version de MinIO * avant * d'effectuer une mise à niveau, il n'y a aucune exigence forcée de mettre à niveau vers les dernières versions à chaque version. Certaines versions peuvent ne pas être pertinentes pour votre configuration, évitez de mettre à niveau inutilement les environnements de production.
+- Si vous prévoyez d'utiliser `mc admin update`, le processus MinIO doit avoir un accès en écriture au répertoire parent où le binaire est présent sur le système hôte.
+- `mc admin update` n'est pas pris en charge et doit être évité dans les environnements kubernetes/conteneurs, veuillez mettre à niveau les conteneurs en mettant à niveau les images de conteneur pertinentes.
+- **Nous ne recommandons pas de mettre à niveau un serveur MinIO à la fois, le produit est conçu pour prendre en charge les mises à niveau parallèles, veuillez suivre nos directives recommandées.**
 
-## Explore Further
+## Explorez plus
 
 - [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html)
 - [Use `mc` with MinIO Server](https://min.io/docs/minio/linux/reference/minio-mc.html)
 - [Use `minio-go` SDK with MinIO Server](https://min.io/docs/minio/linux/developers/go/minio-go.html)
 - [The MinIO documentation website](https://min.io/docs/minio/linux/index.html)
 
-## Contribute to MinIO Project
+## Contribuer au projet MinIO
 
-Please follow MinIO [Contributor's Guide](https://github.com/minio/minio/blob/master/CONTRIBUTING.md)
+Merci de suivre MinIO [Contributor's Guide](https://github.com/minio/minio/blob/master/CONTRIBUTING.md)
 
 ## License
 
