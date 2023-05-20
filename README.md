@@ -10,31 +10,26 @@ Ce fichier README fournit des instructions de démarrage rapide sur l'exécution
 
 ## Installation du conteneur
 
-Use the following commands to run a standalone MinIO server as a container.
+Utilisez les commandes suivantes pour exécuter un serveur MinIO autonome en tant que conteneur. 
 
-Standalone MinIO servers are best suited for early development and evaluation. Certain features such as versioning, object locking, and bucket replication
-require distributed deploying MinIO with Erasure Coding. For extended development and production, deploy MinIO with Erasure Coding enabled - specifically,
-with a *minimum* of 4 drives per MinIO server. See [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html)
-for more complete documentation.
+Les serveurs MinIO autonomes sont les mieux adaptés au développement et à l'évaluation précoces. Certaines fonctionnalités telles que la gestion des versions, le verrouillage d'objet et la réplication de bucket nécessitent le déploiement distribué de MinIO avec Erasure Coding. Pour un développement et une production étendus, déployez MinIO avec le codage d'effacement activé - en particulier, avec un *minimum* de 4 disques par serveur MinIO. Voir [Présentation du code d'effacement MinIO](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html)
+pour une documentation plus complète.
 
 ### Stable
 
-Run the following command to run the latest stable image of MinIO as a container using an ephemeral data volume:
+Exécutez la commande suivante pour exécuter la dernière image stable de MinIO en tant que conteneur à l'aide d'un volume de données éphémère : 
 
 ```sh
 podman run -p 9000:9000 -p 9001:9001 \
   quay.io/minio/minio server /data --console-address ":9001"
 ```
 
-The MinIO deployment starts using default root credentials `minioadmin:minioadmin`. You can test the deployment using the MinIO Console, an embedded
-object browser built into MinIO Server. Point a web browser running on the host machine to <http://127.0.0.1:9000> and log in with the
-root credentials. You can use the Browser to create buckets, upload objects, and browse the contents of the MinIO server.
+Le déploiement MinIO démarre en utilisant les informations d'identification racine par défaut `minioadmin:minioadmin`. Vous pouvez tester le déploiement à l'aide de la console MinIO, un outil intégré navigateur d'objets intégré au serveur MinIO. Sur votre navigateur Web exécuté sur la machine hôte l'adresse <http://127.0.0.1:9000> et connectez-vous avec les identifiants racine. Vous pouvez utiliser le navigateur pour créer des compartiments, télécharger des objets et parcourir le contenu du serveur MinIO.
 
-You can also connect using any S3-compatible tool, such as the MinIO Client `mc` commandline tool. See
-[Test using MinIO Client `mc`](#test-using-minio-client-mc) for more information on using the `mc` commandline tool. For application developers,
-see <https://min.io/docs/minio/linux/developers/minio-drivers.html> to view MinIO SDKs for supported languages.
+Vous pouvez également vous connecter à l'aide de n'importe quel outil compatible S3, tel que l'outil de ligne de commande "mc" du client MinIO. Voir 
+[Test d'utilisation MinIO Client `mc`](#test-using-minio-client-mc) pour plus d'informations sur l'utilisation de l'outil de ligne de commande `mc`. Pour les développeurs d'applications, voir <https://min.io/docs/minio/linux/developers/minio-drivers.html> pour afficher les SDK MinIO pour les langues prises en charge.
 
-> NOTE: To deploy MinIO on with persistent storage, you must map local persistent directories from the host OS to the container using the `podman -v` option. For example, `-v /mnt/data:/data` maps the host OS drive at `/mnt/data` to `/data` on the container.
+> REMARQUE : Pour déployer MinIO avec un stockage persistant, vous devez mapper les répertoires persistants locaux du système d'exploitation hôte vers le conteneur à l'aide de l'option "podman -v". Par exemple, `-v /mnt/data:/data` mappe le lecteur du système d'exploitation hôte à `/mnt/data` à `/data` sur le conteneur. 
 
 ## macOS
 
